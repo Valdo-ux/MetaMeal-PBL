@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\ProgresController;
 use App\Http\Controllers\ProgramLatihanController;
 use App\Http\Controllers\ResepMakanController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BerandaController;
 
 //LANDING PAGES
 Route::get('/', [LandingpageController::class, 'home'])->name('landing');
@@ -37,4 +38,16 @@ Route::prefix('/programlatihan')->controller(ProgramLatihanController::class)->g
 Route::prefix('/resepmakan')->controller(ResepMakanController::class)->group(function(){
     Route::get('/', 'resepmakan')->name('resep');
     Route::get('/trainer', 'resepmakan_trainer')->name('resep-trainer');
+});
+
+//AUTENTIKASI
+Route::prefix("/")->controller(AuthController::class)->group(function(){
+    Route::get('/login', 'login')->name('login');
+    Route::get('/daftar', 'daftar')->name('register');
+});
+
+//BERANDA  
+Route::prefix('/beranda')->controller(BerandaController::class)->group(function(){
+    Route::get('/', 'beranda')->name('beranda');
+    Route::get('/trainer', 'beranda_trainer')->name('beranda-trainer');
 });
