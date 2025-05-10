@@ -5,6 +5,7 @@ use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\ProgresController;
 use App\Http\Controllers\ProgramLatihanController;
+use App\Http\Controllers\ResepMakanController;
 use Illuminate\Support\Facades\Route;
 
 //LANDING PAGES
@@ -30,4 +31,10 @@ Route::prefix('/programlatihan')->controller(ProgramLatihanController::class)->g
     Route::get('/trainee', 'programlatihan')->name('latihan');
     Route::get('/trainer', 'programlatihan_trainer')->name('latihan-trainer');
 
+});
+
+//RESEP MAKAN
+Route::prefix('/resepmakan')->controller(ResepMakanController::class)->group(function(){
+    Route::get('/', 'resepmakan')->name('resep');
+    Route::get('/trainer', 'resepmakan_trainer')->name('resep-trainer');
 });
