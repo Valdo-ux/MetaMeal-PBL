@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\ProgresController;
+use App\Http\Controllers\ProgramLatihanController;
 use Illuminate\Support\Facades\Route;
 
 //LANDING PAGES
@@ -22,4 +23,11 @@ Route::prefix('/')->controller(NotifikasiController::class)->group(function(){
 Route::prefix('/progres')->controller(ProgresController::class)->group(function(){
     Route::get('/', 'progres')->name('progres');
     Route::get('/trainer', 'progres_trainer')->name('progres-trainer');
+});
+
+//PROGRAM LATIHAN
+Route::prefix('/programlatihan')->controller(ProgramLatihanController::class)->group(function(){
+    Route::get('/trainee', 'programlatihan')->name('latihan');
+    Route::get('/trainer', 'programlatihan_trainer')->name('latihan-trainer');
+
 });
