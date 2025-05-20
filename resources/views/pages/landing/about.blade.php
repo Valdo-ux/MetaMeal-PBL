@@ -3,7 +3,7 @@
     <section class="bg-light-blue px-6 py-12 md:px-20 md:py-16 rounded-lg m-6 md:mx-20">
         <div class="flex flex-col md:flex-row items-center gap-10">
             <div class="md:w-1/2">
-                <img src="/path-to-your-about-image.png" alt="Tentang MetaMeal" class="w-full max-w-sm mx-auto">
+                <img src="{{ asset('images/about.png') }}" alt="Tentang MetaMeal">
             </div>
             <div class="md:w-1/2 border border-dashed border-light-blue p-6 rounded-lg bg-white shadow">
                 <h2 class="text-xl md:text-2xl font-bold text-blue-600 mb-4">Tentang MetaMeal</h2>

@@ -11,7 +11,7 @@
         </div>
         <div class="md:w-1/2">
             <div class="relative">
-                <img src="/path-to-your-image.jpg" alt="Diet Image" class="rounded shadow-lg max-w-full h-auto">
+                <img src="images/landing.png" alt="Diet Image" class="rounded shadow-lg max-w-full h-auto">
                 <div class="absolute top-0 left-0 w-full h-full border-dotted border-2 border-blue-200 opacity-25 pointer-events-none"></div>
             </div>
         </div>

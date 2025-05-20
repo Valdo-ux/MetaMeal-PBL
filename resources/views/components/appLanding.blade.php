@@ -18,7 +18,7 @@
     <!-- Navbar -->
     <nav class="bg-custom-darkgreen text-white px-6 py-4 flex justify-between items-center">
         <div class="flex items-center space-x-3">
-            <img src="/path-to-your-logo.png" alt="MetaMeal Logo" class="h-8 w-8">
+            <img src="{{ asset('images/logo.jpeg') }}" alt="Tentang MetaMeal" class="h-16 w-16 rounded-full">
             <span class="text-2xl font-bold">
                 <span class="text-purple-400">Meta</span><span class="text-white">Meal</span>
             </span>
