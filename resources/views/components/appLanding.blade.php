@@ -44,10 +44,10 @@
             </li>
         </ul>
         <div class="space-x-2">
-            <a href="{{ route('login') }}" class="bg-white text-custom-darkgreen px-4 py-1 rounded hover:bg-gray-100 font-semibold">
+            <a href="{{ route('login') }}" class="bg-custom-green text-white px-4 py-1 border border-white rounded hover:bg-white hover:text-green-700 font-semibold">
                 Login
             </a>
-            <a href="{{ route('register') }}" class="bg-custom-green text-white px-4 py-1 border border-white rounded hover:bg-white hover:text-custom-darkgreen font-semibold">
+            <a href="{{ route('register') }}" class="bg-custom-green text-white px-4 py-1 border border-white rounded hover:bg-white hover:text-green-700 font-semibold">
                 Register
             </a>
         </div>

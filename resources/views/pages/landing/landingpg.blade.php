@@ -5,8 +5,8 @@
             <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">Diet Lebih Mudah & Terarah dengan <span class="text-white">MetaMeal</span></h1>
             <p class="text-sm text-white mb-6 max-w-md">MetaMeal adalah solusi cerdas untuk membantu Anda mencapai gaya hidup sehat. Dapatkan rencana makan personal, rekomendasi makanan bergizi, dan panduan latihan sesuai kebutuhan Anda.</p>
             <div class="flex space-x-4">
-                <a href="#" class="bg-white text-custom-darkgreen px-4 py-2 rounded hover:bg-gray-100 font-semibold">Login</a>
-                <a href="#" class="border border-white text-white px-4 py-2 rounded hover:bg-white hover:text-custom-darkgreen font-semibold">Register</a>
+                <a href="login" class="border border-white text-white px-4 py-2 rounded hover:bg-white hover:text-green-700 font-semibold">Login</a>
+                <a href="daftar" class="border border-white text-white px-4 py-2 rounded hover:bg-white hover:text-green-700 font-semibold">Register</a>
             </div>
         </div>
         <div class="md:w-1/2">
