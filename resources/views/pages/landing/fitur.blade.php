@@ -1,6 +1,7 @@
 <x-appLanding title="Fitur">
     <!-- Fitur Section -->
     <section class="bg-gray-100 p-10 md:p-16 rounded-lg mx-4 md:mx-20 my-10 shadow">
+        
         <h2 class="text-2xl md:text-3xl font-bold text-center mb-10">Fitur Unggulan MetaMeal</h2>
         <div class="grid md:grid-cols-3 gap-6 text-center">
             <!-- Fitur 1 -->

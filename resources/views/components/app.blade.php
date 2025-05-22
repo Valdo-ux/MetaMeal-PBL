@@ -27,6 +27,11 @@
   <x-modal.editProfil></x-modal.editProfil>
 
   <!-- Script -->
+   <script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
   <script>
     function toggleProfile() {
       const popup = document.getElementById('profilePopup');

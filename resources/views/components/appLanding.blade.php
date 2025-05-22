@@ -12,6 +12,15 @@
         .text-custom-darkgreen { color: #3F7D20; }
         .bg-light-blue { background-color: #E3F0FF; }
         .border-light-blue { border-color: #BFD8FF; }
+
+        /* Smooth page fade effect */
+        #page {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        #page.page-enter-active {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-custom-green flex flex-col min-h-screen">
@@ -23,26 +32,42 @@
                 <span class="text-purple-400">Meta</span><span class="text-white">Meal</span>
             </span>
         </div>
+        
         <ul class="flex space-x-6">
+            @php
+                $activeClass = 'relative font-semibold text-white';
+                $inactiveClass = 'relative text-white hover:text-green-300 transition duration-300';
+            @endphp
+
             <li>
-                <a href="{{ route('landing') }}"
-                    class="{{ request()->routeIs('landing') ? 'underline font-bold' : 'hover:underline' }}">
+                <a href="{{ route('landing') }}" 
+                   class="{{ request()->routeIs('landing') ? $activeClass : $inactiveClass }}">
                     Home
+                    @if(request()->routeIs('landing'))
+                        <span class="absolute left-0 -bottom-1 w-full h-0.5 bg-white"></span>
+                    @endif
                 </a>
             </li>
             <li>
-                <a href="{{ route('about') }}"
-                    class="{{ request()->routeIs('about') ? 'underline font-bold' : 'hover:underline' }}">
+                <a href="{{ route('about') }}" 
+                   class="{{ request()->routeIs('about') ? $activeClass : $inactiveClass }}">
                     About
+                    @if(request()->routeIs('about'))
+                        <span class="absolute left-0 -bottom-1 w-full h-0.5 bg-white"></span>
+                    @endif
                 </a>
             </li>
             <li>
-                <a href="{{ route('fitur') }}"
-                    class="{{ request()->routeIs('fitur') ? 'underline font-bold' : 'hover:underline' }}">
+                <a href="{{ route('fitur') }}" 
+                   class="{{ request()->routeIs('fitur') ? $activeClass : $inactiveClass }}">
                     Fitur
+                    @if(request()->routeIs('fitur'))
+                        <span class="absolute left-0 -bottom-1 w-full h-0.5 bg-white"></span>
+                    @endif
                 </a>
             </li>
         </ul>
+
         <div class="space-x-2">
             <a href="{{ route('login') }}" class="bg-custom-green text-white px-4 py-1 border border-white rounded hover:bg-white hover:text-green-700 font-semibold">
                 Login
@@ -53,8 +78,8 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="flex-1 p-6 bg-light-blue">
+    <!-- Main Content (with fade effect) -->
+    <main id="page" class="flex-1 p-6 bg-light-blue">
         {{ $slot }}
     </main>
 
@@ -64,11 +89,6 @@
             <div>
                 <h4 class="text-xl font-bold text-custom-darkgreen mb-2">MetaMeal</h4>
                 <p class="text-sm">Copyright © 2025 Metameal<br>All rights reserved.</p>
-                <div class="flex space-x-3 mt-3">
-                    <a href="#"><img src="/icons/facebook.svg" class="h-5"></a>
-                    <a href="#"><img src="/icons/twitter.svg" class="h-5"></a>
-                    <a href="#"><img src="/icons/instagram.svg" class="h-5"></a>
-                </div>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div>
@@ -91,5 +111,18 @@
             </div>
         </div>
     </footer>
+
+    <!-- Smooth fade-in script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const page = document.getElementById('page');
+            if (page) {
+                setTimeout(() => {
+                    page.classList.add('page-enter-active');
+                }, 50);
+            }
+        });
+    </script>
+
 </body>
 </html>

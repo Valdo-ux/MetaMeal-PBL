@@ -1,6 +1,6 @@
 <x-appLanding title="About">
     <!-- About Sections -->
-    <section class="bg-light-blue px-6 py-12 md:px-20 md:py-16 rounded-lg m-6 md:mx-20">
+      <section class="flex flex-col md:flex-row items-center justify-between px-8 md:px-16 py-12 bg-custom-green">
         <div class="flex flex-col md:flex-row items-center gap-10">
             <div class="md:w-1/2">
                 <img src="{{ asset('images/about.png') }}" alt="Tentang MetaMeal">
