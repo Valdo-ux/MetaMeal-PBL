@@ -27,12 +27,20 @@ Route::prefix('/progres')->controller(ProgresController::class)->group(function(
     Route::get('/trainer', 'progres_trainer')->name('progres-trainer');
 });
 
-//PROGRAM LATIHAN
-Route::prefix('/programlatihan')->controller(ProgramLatihanController::class)->group(function(){
+
+// PROGRAM LATIHAN
+Route::prefix('/programlatihan')->controller(ProgramLatihanController::class)->group(function () {
     Route::get('/trainee', 'programlatihan')->name('latihan');
     Route::get('/trainer', 'programlatihan_trainer')->name('latihan-trainer');
 
+    // CRUD
+    Route::post('/', 'store')->name('program.store');
+    Route::post('/update/{id}', 'update')->name('program.update');
+    Route::get('/delete/{id}', 'destroy')->name('program.delete');
 });
+
+
+
 
 //RESEP MAKAN
 Route::prefix('/resepmakan')->controller(ResepMakanController::class)->group(function(){
@@ -51,3 +59,5 @@ Route::prefix('/beranda')->controller(BerandaController::class)->group(function(
     Route::get('/', 'beranda')->name('beranda');
     Route::get('/trainer', 'beranda_trainer')->name('beranda-trainer');
 });
+
+
