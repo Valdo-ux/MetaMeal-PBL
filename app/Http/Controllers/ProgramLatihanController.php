@@ -20,6 +20,9 @@ class ProgramLatihanController extends Controller
         }
     }
 
+    /**
+     * Halaman untuk trainer
+     */
     public function programlatihan_trainer()
     {
         $stmt = $this->db->query("SELECT * FROM program_latihan ORDER BY tanggal ASC");
@@ -27,11 +30,19 @@ class ProgramLatihanController extends Controller
         return view('pages.trainer.programlatihan', ['data' => $data]);
     }
 
+    /**
+     * Halaman untuk trainee - hanya view
+     */
     public function programlatihan()
     {
-        return view('pages.programlatihan');
+        $stmt = $this->db->query("SELECT * FROM program_latihan ORDER BY tanggal ASC");
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return view('pages.programlatihan', ['data' => $data]); // kirim data juga
     }
 
+    /**
+     * Simpan data - hanya digunakan oleh trainer
+     */
     public function store(Request $request)
     {
         try {
@@ -53,6 +64,9 @@ class ProgramLatihanController extends Controller
         }
     }
 
+    /**
+     * Update data - hanya untuk trainer
+     */
     public function update(Request $request, $id)
     {
         try {
@@ -80,6 +94,9 @@ class ProgramLatihanController extends Controller
         }
     }
 
+    /**
+     * Hapus data - hanya untuk trainer
+     */
     public function destroy($id)
     {
         try {

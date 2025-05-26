@@ -1,9 +1,11 @@
 <x-app>
+    
     <!-- Tombol Tambah -->
     <div class="flex justify-end mb-4">
-        <button id="openAddModal" class="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600 transition">
-            + Tambah Program Latihan
-        </button>
+       <button id="openAddModal" class="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600 transition transform hover:scale-105 duration-200">
+    + Tambah Program Latihan
+</button>
+
     </div>
 
     <!-- Daftar Program -->
@@ -13,7 +15,9 @@
         @endif
 
         @foreach($data as $item)
-        <div class="bg-gray-200 p-4 rounded-lg shadow-md flex justify-between items-center">
+        <div class="bg-gray-200 p-4 rounded-lg shadow-md flex justify-between items-center shadow transition hover:shadow-lg duration-300">
+    
+
             <div>
                 <h2 class="text-xl font-bold">{{ $item['nama'] ?? '-' }}</h2>
                 <p class="text-sm font-semibold">{{ \Carbon\Carbon::parse($item['tanggal'])->translatedFormat('l, d F Y') }}</p>
@@ -38,44 +42,54 @@
         @endforeach
     </section>
 
-    <!-- Modal Tambah/Edit -->
-    <div id="editModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-        <div class="bg-white rounded-lg shadow-lg p-6 w-96">
-            <h2 class="text-xl font-bold mb-4" id="modalTitle">Tambah Program Latihan</h2>
-            <form id="editForm">
-                <input type="hidden" id="recordId" name="id" />
-                <input type="hidden" id="modalMode" value="add" />
+<!-- Modal Tambah/Edit -->
+<div id="editModal"
+    class="fixed inset-0 bg-white/30 backdrop-blur-md flex items-center justify-center hidden z-50">
+    <div class="bg-white text-black rounded-lg shadow-lg p-6 w-96">
+        <h2 class="text-xl font-bold mb-4" id="modalTitle">Tambah Program Latihan</h2>
+        <form id="editForm">
+            <input type="hidden" id="recordId" name="id" />
+            <input type="hidden" id="modalMode" value="add" />
 
-                <div class="mb-4">
-                    <label class="block text-sm font-semibold mb-1">Nama</label>
-                    <input type="text" id="modalNama" name="nama" class="w-full border rounded p-2" required />
-                </div>
-                <div class="mb-4">
-                    <label class="block text-sm font-semibold mb-1">Tanggal</label>
-                    <input type="date" id="modalTanggal" name="tanggal" class="w-full border rounded p-2" required />
-                </div>
-                <div class="mb-4">
-                    <label class="block text-sm font-semibold mb-1">Jenis Latihan</label>
-                    <input type="text" id="modalLatihan" name="jenis_latihan" class="w-full border rounded p-2" required />
-                </div>
-                <div class="mb-4">
-                    <label class="block text-sm font-semibold mb-1">Details</label>
-                    <textarea class="w-full border rounded p-2 resize-none" id="details" name="details" rows="3" required></textarea>
-                </div>
-                <div class="mb-4">
-                    <label class="block text-sm font-semibold mb-1">Status</label>
-                    <select class="w-full border rounded p-2" id="edit-status" name="status" required>
-                        <option value="not yet">Not Yet</option>
-                        <option value="finish">Finish</option>
-                    </select>
-                </div>
-                <div class="flex justify-end space-x-2">
-                    <button type="button" id="closeModal" class="px-4 py-2 bg-gray-400 text-white rounded">Batal</button>
-                    <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded">Simpan</button>
-                </div>
-            </form>
-        </div>
+            <div class="mb-4">
+                <label class="block text-sm font-semibold mb-1">Nama</label>
+                <input type="text" id="modalNama" name="nama" class="w-full border rounded p-2 bg-white text-black" required />
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-sm font-semibold mb-1">Tanggal</label>
+                <input type="date" id="modalTanggal" name="tanggal" class="w-full border rounded p-2 bg-white text-black" required />
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-sm font-semibold mb-1">Jenis Latihan</label>
+                <input type="text" id="modalLatihan" name="jenis_latihan" class="w-full border rounded p-2 bg-white text-black" required />
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-sm font-semibold mb-1">Details</label>
+                <textarea id="details" name="details" rows="3"
+                    class="w-full border rounded p-2 bg-white text-black resize-none" required></textarea>
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-sm font-semibold mb-1">Status</label>
+                <select id="edit-status" name="status"
+                    class="w-full border rounded p-2 bg-white text-black" required>
+                    <option value="not yet">Not Yet</option>
+                    <option value="finish">Finish</option>
+                </select>
+            </div>
+
+            <div class="flex justify-end space-x-2">
+                <button type="button" id="closeModal"
+                    class="px-4 py-2 bg-gray-400 text-white rounded">Batal</button>
+                <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded">Simpan</button>
+            </div>
+        </form>
     </div>
+</div>
+
 
     <!-- Script interaksi -->
     <script>
